@@ -4,7 +4,7 @@ Super simple Angular 2 app with 1 module and 4 routes. In a weekend we created a
 
 ## Get the Code
 ```
-git clone git@github.com:jayanzaman/skully_one_angular2.git
+git clone https://github.com/jdpeck90/Mean-Stack-Angular-2-Movie-App.git
 
 npm install
 
