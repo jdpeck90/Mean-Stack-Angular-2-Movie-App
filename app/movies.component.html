@@ -1,0 +1,22 @@
+<h2>My Movies</h2>
+<ul class="movies">
+  <li *ngFor="let movie of movies" (click)="onSelect(movie)" [class.selected]="movie === selectedmovie">
+    <span class="movie-element">
+      <span class="badge">{{movie.id}}</span> {{movie.name}}
+    </span>
+    <button class="delete-button" (click)="deleteMovie(movie, $event)">Delete</button>
+  </li>
+</ul>
+
+<div class="error" *ngIf="error">{{error}}</div>
+<button (click)="addMovie()">Add New Movie</button>
+<div *ngIf="addingMovie">
+  <my-movie-detail (close)="close($event)"></my-movie-detail>
+</div>
+
+<div *ngIf="selectedMovie">
+  <h2>
+    {{selectedMovie.name | uppercase}} is my movie
+  </h2>
+  <button (click)="gotoMovies()">View Details</button>
+</div>

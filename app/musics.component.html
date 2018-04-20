@@ -1,0 +1,22 @@
+<h2>Some Music</h2>
+<ul class="musics">
+  <li *ngFor="let music of musics" (click)="onSelect(music)" [class.selected]="music === selectedmusic">
+    <span class="music-element">
+      <span class="badge">{{music.id}}</span> {{music.name}}
+    </span>
+    <button class="delete-button" (click)="deleteMusic(music, $event)">Delete</button>
+  </li>
+</ul>
+
+<div class="error" *ngIf="error">{{error}}</div>
+<button (click)="addMusic()">Add New Music</button>
+<div *ngIf="addingMusic">
+  <my-music-detail (close)="close($event)"></my-music-detail>
+</div>
+
+<div *ngIf="selectedMusic">
+  <h2>
+    {{selectedMusic.name | uppercase}} is my music
+  </h2>
+  <button (click)="gotoMusics()">View Details</button>
+</div>
